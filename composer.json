@@ -1,0 +1,14 @@
+{
+    "name": "korkydoobie/AD-Meeting-Calendar",
+    "type": "project",
+    "authors": [
+        {
+            "name": "korkydoobie",
+            "email": "krkgrffntn@gmail.com"
+        }
+    ],
+    "scripts": {
+        "start": "php -S localhost:8000 router.php"
+    },
+    "require": {}
+}
