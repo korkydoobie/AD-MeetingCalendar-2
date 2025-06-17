@@ -1,8 +1,8 @@
 services:
-  AD-Meeting-Calendar:
+  ad-meeting-calendar:
     build:
       context: .
-    container_name: AD-Meeting-Calendar-service
+    container_name: ad-meeting-calendar-service
     ports:
       - "8000:8000"
     develop:
