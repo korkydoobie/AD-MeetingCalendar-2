@@ -1,7 +1,5 @@
 <?php
-define("HANDLERS_PATH", _DIR_ . "/handlers");
-
-
+define("HANDLERS_PATH", __DIR__ . "/handlers");
 ?>
 <html>
     <body>
