@@ -5,6 +5,8 @@ services:
     container_name: ad-meeting-calendar-service
     ports:
       - "8000:8000"
+    volumes:
+      - .:/var/www/html
     develop:
       watch:
         - path: .
