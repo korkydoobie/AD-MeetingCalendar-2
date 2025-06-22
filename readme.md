@@ -54,8 +54,6 @@
 
 This is a project that aims to show that the docker setup is successful.
 
-### Key Components
-
 ### Technology
 
 #### Language
