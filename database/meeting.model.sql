@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS meeting (
+CREATE TABLE IF NOT EXISTS meetings (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT,
