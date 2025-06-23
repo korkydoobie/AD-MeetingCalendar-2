@@ -19,9 +19,9 @@ $pdo = new PDO($dsn, $pgConfig['user'], $pgConfig['pass'], [
 // ——— Load schema files FIRST ———
 $models = [
   'user.model.sql',
-  'project.model.sql',
+  'meeting.model.sql',        
   'task.model.sql',
-  'project_users.model.sql'
+  'meeting_users.model.sql'   
 ];
 
 foreach ($models as $modelFile) {
@@ -38,7 +38,7 @@ foreach ($models as $modelFile) {
 
 // ——— Truncate tables AFTER ———
 echo "Truncating tables…\n";
-foreach (['project_users', 'tasks', 'projects', 'users'] as $table) {
+foreach (['meeting_users', 'tasks', 'meetings', 'users'] as $table) {
   $pdo->exec("TRUNCATE TABLE {$table} RESTART IDENTITY CASCADE;");
 }
 echo "✅ Tables truncated successfully.\n";
