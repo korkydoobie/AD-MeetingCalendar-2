@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS tasks (
     id SERIAL PRIMARY KEY,
-    project_id INTEGER REFERENCES projects(id),
+    meeting_id INTEGER REFERENCES meetings(id),
     assigned_to INTEGER REFERENCES users(id),
     title VARCHAR(150) NOT NULL,
     description TEXT,
