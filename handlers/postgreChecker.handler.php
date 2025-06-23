@@ -1,6 +1,6 @@
 <?php
 
-REQUIRE_ONCE __DIR__ . '/../utils/envSetter.util.php';
+require_once UTILS_PATH . '/envSetter.util.php';
 
 $host = "host.docker.internal"; 
 $port = "5112";
