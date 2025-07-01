@@ -17,28 +17,28 @@ $pdo = new PDO($dsn, $pgConfig['user'], $pgConfig['pass'], [
 ]);
 
 // ——— Load schema files FIRST ———
-$models = [
-  'user.model.sql',
-  'meeting.model.sql',        
-  'task.model.sql',
-  'meeting_users.model.sql'   
+$schemaFiles = [
+    'users'          => 'database/user.model.sql',
+    'meetings'        => 'database/meeting.model.sql',
+    'tasks'          => 'database/task.model.sql',
+    'meeting_users'  => 'database/meeting_users.model.sql',
 ];
 
-foreach ($models as $modelFile) {
-  echo "Applying schema from database/{$modelFile}…\n";
-  $sql = file_get_contents("database/{$modelFile}");
+foreach ($schemaFiles as $table => $filePath) {
+    echo "Applying schema from {$filePath}…\n";
+    $sql = file_get_contents($filePath);
 
-  if ($sql === false) {
-    throw new RuntimeException("Could not read database/{$modelFile}");
-  }
+    if ($sql === false) {
+        throw new RuntimeException("Could not read {$filePath}");
+    }
 
-  $pdo->exec($sql);
-  echo "✅ Created schema from {$modelFile}\n";
+    $pdo->exec($sql);
+    echo "✅ Created schema from {$filePath}\n";
 }
 
-// ——— Truncate tables AFTER ———
+// Truncate tables
 echo "Truncating tables…\n";
-foreach (['meeting_users', 'tasks', 'meetings', 'users'] as $table) {
-  $pdo->exec("TRUNCATE TABLE {$table} RESTART IDENTITY CASCADE;");
+foreach (array_keys($schemaFiles) as $table) {
+    $pdo->exec("TRUNCATE TABLE {$table} RESTART IDENTITY CASCADE;");
 }
 echo "✅ Tables truncated successfully.\n";
