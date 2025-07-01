@@ -2,11 +2,11 @@
 
 require_once UTILS_PATH . '/envSetter.util.php';
 
-$host = "host.docker.internal"; 
-$port = "5112";
-$username = "kirkgriffin";
-$password = "kiseryota@07";
-$dbname = "meetingDatabase";
+$host = $pgConfig['host'];
+$port = $pgConfig['port'];
+$username = $pgConfig['user'];
+$password = $pgConfig['pass'];
+$dbname = $pgConfig['db'];
 
 $conn_string = "host=$host port=$port dbname=$dbname user=$username password=$password";
 
