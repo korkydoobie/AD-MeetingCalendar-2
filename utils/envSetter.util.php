@@ -4,6 +4,10 @@ require_once VENDOR_PATH . '/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
+if (php_sapi_name() === 'cli') {
+    $_ENV['PG_HOST'] = 'localhost';
+}
+
 // Distribute the data using array key
 $pgConfig = [
     'host' => $_ENV['PG_HOST'],
